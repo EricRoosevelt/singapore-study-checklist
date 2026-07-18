@@ -1,0 +1,1493 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<meta name="description" content="面向中国赴新加坡留学生的行前办理、随身文件、行李打包与落地购买清单。">
+<meta name="color-scheme" content="light">
+<meta property="og:title" content="新加坡留学准备清单">
+<meta property="og:description" content="按需启用住宿、学习、做饭、美妆、衣物、数码、健康和旅行清单，进度仅保存在当前浏览器。">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>新加坡留学准备清单</title>
+<style>
+:root {
+  --bg:#f4f7f6; --card:#fff; --ink:#102a27; --muted:#63706d;
+  --brand:#0f766e; --brand2:#115e59; --line:#dce7e4; --done:#e8f7ef;
+  --warn:#fff5d6; --danger:#b42318; --info:#e8f1ff; --header-height:105px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header-height) + 130px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",Arial,sans-serif}
+body.modal-open{overflow:hidden}
+header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:calc(14px + env(safe-area-inset-top)) 16px 14px;box-shadow:0 3px 14px rgba(0,0,0,.12)}
+h1{font-size:clamp(20px,6vw,24px);margin:0;letter-spacing:0}
+.header-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.info-button{width:44px;height:44px;min-height:44px;padding:0;flex:0 0 44px;border:1px solid rgba(255,255,255,.45);background:transparent;color:#fff;font-size:20px;font-weight:700}
+.version-pill{font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:3px 7px;margin-left:6px;vertical-align:3px}
+.progress-line{display:flex;justify-content:space-between;align-items:center;font-size:14px;margin-bottom:7px}
+.progress{height:10px;background:rgba(255,255,255,.25);border-radius:999px;overflow:hidden}
+.progress>div{height:100%;background:#fff;width:0;transition:width .2s}
+.toolbar{position:sticky;top:var(--header-height);z-index:20;background:rgba(244,247,246,.97);backdrop-filter:blur(12px);padding:10px 12px;border-bottom:1px solid var(--line)}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.search{width:100%;font-size:16px;border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:#fff;outline:none}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:9px 0 2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+button{min-height:44px;border:0;border-radius:999px;padding:10px 14px;background:#e7efed;color:#21433f;font-size:14px;white-space:nowrap;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+button.active{background:var(--brand);color:#fff}
+button:disabled{cursor:default;opacity:.55}
+main{padding:12px 12px calc(132px + env(safe-area-inset-bottom));max-width:760px;margin:auto}
+.status-alert{max-width:760px;margin:10px auto 0;padding:12px 14px;background:#fff1f0;border:1px solid #f7b4ae;border-radius:10px;color:#7a271a;font-size:14px;line-height:1.5}
+.catalog-summary{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:0 0 10px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:13px}
+.catalog-summary strong{color:var(--ink)}
+.big-group{background:var(--card);border:1px solid var(--line);border-radius:8px;margin-bottom:12px;overflow:hidden;box-shadow:0 2px 10px rgba(25,65,60,.04)}
+.big-title{width:100%;border-radius:0;text-align:left;display:flex;align-items:center;justify-content:space-between;color:var(--ink)}
+.big-title{padding:13px 16px;background:#edf7f4;font-weight:700;font-size:18px}
+.big-count{font-size:13px;color:var(--muted);font-weight:500;flex:0 0 auto}
+.big-body{padding:0 10px 6px}
+.item-row{position:relative;overflow:hidden;border-top:1px solid #edf1f0;background:#fff;touch-action:pan-y}
+.item-row:first-child{border-top:0}
+.item-row.swiping .item{transition:none}
+.item{position:relative;z-index:1;display:grid;width:100%;grid-template-columns:44px minmax(0,1fr);gap:6px;align-items:start;padding:10px 6px;background:#fff;transition:transform .18s ease;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.item-row.open .item{transform:translateX(-168px)}
+.item.done{background:var(--done)}
+.item.done .name{text-decoration:line-through}
+.row-actions{position:absolute;right:0;top:0;bottom:0;width:168px;display:flex;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .12s ease}
+.item-row.open .row-actions,.item-row.swiping .row-actions{visibility:visible;opacity:1;pointer-events:auto}
+.action-btn{width:84px;border-radius:0;color:#fff;font-weight:700;padding:0;display:flex;align-items:center;justify-content:center}
+.edit-btn{background:#f59e0b}
+.delete-btn{background:#ef4444}
+.check-wrap{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+.check{width:30px;height:30px;margin:0;accent-color:var(--brand)}
+.name{font-size:17px;line-height:1.38}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tag{font-size:12px;line-height:1.2;padding:5px 7px;border-radius:8px;background:#eef3f2;color:#4d5d59}
+.tag.note{background:var(--warn);color:#6b5600}
+.empty{text-align:center;color:var(--muted);padding:36px 12px}
+.fab{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:40;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.fab-row{display:flex;align-items:center;justify-content:flex-end;gap:8px}
+.fab button{box-shadow:0 5px 18px rgba(15,118,110,.25);font-weight:700}
+.fab-primary{background:var(--brand);color:#fff}
+.fab-secondary{background:#fff;color:var(--brand);border:1px solid rgba(15,118,110,.2)}
+.fab-undo{width:46px;height:46px;padding:0;border-radius:50%;background:#fff;color:var(--brand);border:1px solid rgba(15,118,110,.2);font-size:26px;line-height:1}
+.drawer{position:fixed;inset:0;display:none;z-index:60;background:rgba(0,0,0,.42);align-items:flex-end}
+.drawer.open{display:flex}
+.panel{background:#fff;width:100%;max-height:88vh;border-radius:18px 18px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));overflow:auto}
+.panel h2{margin:0 0 12px}
+.panel button{display:block;width:100%;margin:8px 0;border-radius:12px;text-align:center;padding:13px}
+.field-label{display:block;font-size:14px;color:var(--muted);margin:10px 0 6px}
+.text-field{width:100%;font-size:17px;border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff;outline:none}
+.text-field:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(15,118,110,.12)}
+.note-field{min-height:88px;resize:vertical}
+.panel-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.panel-actions button{margin:0}
+.panel-actions button[type="submit"]{background:var(--brand);color:#fff}
+.small{font-size:13px;color:var(--muted);line-height:1.55}
+.pack-option{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;min-height:58px;padding:10px 4px;border-top:1px solid var(--line)}
+.pack-option input{width:22px;height:22px;margin:2px 0;accent-color:var(--brand)}
+.pack-option strong{display:block;margin-bottom:3px}
+.info-block{border-top:1px solid var(--line);padding:13px 0}
+.info-block:first-of-type{border-top:0}
+.info-block h3{font-size:16px;margin:0 0 6px}
+.info-block p{font-size:14px;line-height:1.65;margin:0;color:#40504d}
+.source-list{margin:6px 0 0;padding-left:20px}
+.source-list li{margin:8px 0;line-height:1.45}
+.source-list a{color:var(--brand)}
+.toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));z-index:90;transform:translate(-50%,16px);max-width:calc(100vw - 32px);padding:10px 14px;background:#173b37;color:#fff;border-radius:8px;font-size:14px;opacity:0;pointer-events:none;transition:.18s ease}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.hide{display:none!important}
+summary{cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media (min-width:700px){.panel{max-width:620px;margin:0 auto}.drawer{align-items:center}.panel{border-radius:16px;max-height:86vh}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-title-row">
+    <h1>新加坡留学准备清单 <span class="version-pill">公开版</span></h1>
+    <button id="infoBtn" class="info-button" type="button" aria-label="使用与安全说明" title="使用与安全说明">i</button>
+  </div>
+  <div class="progress-line"><span id="progressText">正在加载清单…</span><strong id="percent">0%</strong></div>
+  <div id="progress" class="progress" role="progressbar" aria-label="清单完成进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progressBar"></div></div>
+</header>
+
+<div class="toolbar">
+  <label class="visually-hidden" for="search">搜索清单</label>
+  <input id="search" class="search" type="search" placeholder="搜索物品、备注、分类…" autocomplete="off">
+  <div class="filters" role="group" aria-label="清单筛选">
+    <button data-filter="all" class="active" aria-pressed="true">全部</button>
+    <button data-filter="todo" aria-pressed="false">未完成</button>
+    <button data-filter="done" aria-pressed="false">已完成</button>
+    <button id="packsBtn" type="button">可选包 <span id="packCount">0</span></button>
+  </div>
+</div>
+
+<div id="storageAlert" class="status-alert hide" role="alert"></div>
+<main>
+  <div class="catalog-summary"><span>当前清单：<strong id="activePackSummary">默认分类</strong></span><span id="visibleSummary"></span></div>
+  <div id="app"></div>
+</main>
+
+<div class="fab">
+  <button id="undoDeleteBtn" class="fab-undo hide" type="button" aria-label="撤销删除">↶</button>
+  <div class="fab-row">
+    <button id="toggleAllBtn" class="fab-secondary" type="button">全部展开</button>
+    <button id="addBtn" class="fab-primary" type="button">+ 新增</button>
+  </div>
+</div>
+
+<div id="addDrawer" class="drawer" aria-hidden="true">
+  <form id="addForm" class="panel" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+    <h2 id="formTitle">新增条目</h2>
+    <label class="field-label" for="newItemName">物品名称</label>
+    <input id="newItemName" class="text-field" type="text" placeholder="例如：转换插头备用线" autocomplete="off">
+    <label class="field-label" for="newItemQty">数量</label>
+    <input id="newItemQty" class="text-field" type="text" placeholder="可不填，例如：2个" autocomplete="off">
+    <label class="field-label" for="newItemNote">备注</label>
+    <textarea id="newItemNote" class="text-field note-field" placeholder="可不填，例如：落地后购买"></textarea>
+    <p id="formHint" class="small">新增条目会保存到“自定义”分类中。</p>
+    <div class="panel-actions">
+      <button type="button" id="closeAddDrawer">取消</button>
+      <button id="submitItemForm" type="submit">添加</button>
+    </div>
+  </form>
+</div>
+
+<div id="packDrawer" class="drawer" aria-hidden="true">
+  <section class="panel" role="dialog" aria-modal="true" aria-labelledby="packTitle">
+    <h2 id="packTitle">按需启用可选包</h2>
+    <p class="small">默认显示 6 个基础分类。启用的同名可选分类会加入总进度，关闭后不会删除其中的勾选和编辑记录。</p>
+    <div id="packOptions"></div>
+    <button id="closePackDrawer" class="fab-primary" type="button">完成</button>
+  </section>
+</div>
+
+<div id="infoDrawer" class="drawer" aria-hidden="true">
+  <section class="panel" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <h2 id="infoTitle">使用与安全说明</h2>
+    <div class="info-block">
+      <h3>使用范围</h3>
+      <p>本清单综合多位 NTU、NUS 留学生在小红书分享的经验整理，不代表学校或新加坡政府官方意见。不同学校、项目、住宿和航空公司要求可能不同，请以 ICA、校方和航空公司最新通知为准。</p>
+    </div>
+    <div class="info-block">
+      <h3>数据保存</h3>
+      <p>勾选、新增、编辑、删除和可选包设置只保存在当前网址、当前浏览器。小红书内置浏览器与外部浏览器、不同设备、清除浏览器数据或更换网址都不会共享进度。本网页不会上传清单内容；GitHub Pages 可能为安全目的记录访问者 IP。</p>
+    </div>
+    <div class="info-block">
+      <h3>官方资料</h3>
+      <ul id="sourceList" class="source-list"></ul>
+    </div>
+    <div class="info-block">
+      <p>内容版本：<strong id="contentVersion"></strong><br>最后核验：<strong id="verifiedDate"></strong></p>
+      <p><a id="feedbackLink" class="hide" target="_blank" rel="noopener noreferrer">发现错误？在 GitHub 提交反馈</a></p>
+    </div>
+    <button id="ackInfoBtn" class="fab-primary" type="button">我知道了</button>
+  </section>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+const LEGACY_ITEMS = [{"id":1,"big":"证件文件","sub":"入境","item":"护照","qty":"1+3","note":"原件+3份复印件，复印件分开放"},{"id":2,"big":"证件文件","sub":"入境","item":"IPA Letter","qty":"","note":"入境时按本人 IPA Letter 和校方通知准备；IPA 不是 SG Arrival Card。"},{"id":3,"big":"证件文件","sub":"入境","item":"Offer Letter","qty":"2份","note":"电子版存手机"},{"id":4,"big":"证件文件","sub":"入境","item":"电子票行程单","qty":"1份","note":"电子版存手机"},{"id":5,"big":"证件文件","sub":"入境","item":"住宿证明或租房合同","qty":"2份","note":""},{"id":6,"big":"证件文件","sub":"学校报到","item":"毕业证+学位证","qty":"1+1","note":"原件、翻译件和复印件要求以校方通知为准。"},{"id":7,"big":"证件文件","sub":"学校报到","item":"大学成绩单","qty":"1+1","note":"中英各一份"},{"id":8,"big":"证件文件","sub":"学校报到","item":"雅思成绩单","qty":"1+2","note":"原件+2份复印件"},{"id":9,"big":"证件文件","sub":"学校报到","item":"学信网认证中英文","qty":"1+1","note":""},{"id":10,"big":"证件文件","sub":"学校报到","item":"体检报告","qty":"","note":""},{"id":11,"big":"证件文件","sub":"学校报到","item":"证件照（白底）","qty":"按校方要求","note":"保留合规电子版；实体尺寸和数量以校方通知为准。"},{"id":12,"big":"证件文件","sub":"学校报到","item":"身份证","qty":"1+1","note":"原件+1份复印件"},{"id":13,"big":"证件文件","sub":"备用","item":"现金","qty":"按需少量","note":"不要把固定金额当作所有人的必备标准。"},{"id":14,"big":"证件文件","sub":"备用","item":"银行卡（Visa/Master）","qty":"","note":""},{"id":15,"big":"证件文件","sub":"备用","item":"小钱包","qty":"","note":""},{"id":16,"big":"证件文件","sub":"备用","item":"国内手机卡","qty":"","note":"开通漫游"},{"id":17,"big":"证件文件","sub":"备用","item":"取卡针","qty":"2个","note":""},{"id":18,"big":"证件文件","sub":"备用","item":"防盗刷卡套","qty":"","note":""},{"id":19,"big":"证件文件","sub":"备用","item":"行李锁","qty":"","note":""},{"id":20,"big":"电子产品","sub":"随身带","item":"笔记本电脑+鼠标","qty":"","note":""},{"id":21,"big":"电子产品","sub":"随身带","item":"平板","qty":"","note":""},{"id":22,"big":"电子产品","sub":"随身带","item":"手机","qty":"按需","note":"备用机不是必需品。"},{"id":23,"big":"电子产品","sub":"随身带","item":"降噪耳机","qty":"","note":""},{"id":24,"big":"电子产品","sub":"随身带","item":"充电宝","qty":"最多2个","note":"须放入随身行李；单个不超过100Wh，并以航空公司最新规定为准。"},{"id":25,"big":"电子产品","sub":"插头","item":"英标转换插头","qty":"2–3个","note":""},{"id":26,"big":"电子产品","sub":"插头","item":"多功能插排","qty":"2个","note":"带USB接口"},{"id":27,"big":"电子产品","sub":"配件","item":"手机壳、手机膜","qty":"","note":""},{"id":28,"big":"电子产品","sub":"配件","item":"充电器","qty":"","note":""},{"id":29,"big":"电子产品","sub":"配件","item":"U盘","qty":"2个","note":""},{"id":30,"big":"电子产品","sub":"配件","item":"手机链","qty":"1个","note":""},{"id":31,"big":"电子产品","sub":"配件","item":"Pad笔尖","qty":"1个","note":""},{"id":32,"big":"电子产品","sub":"配件","item":"手机/电脑支架","qty":"","note":""},{"id":33,"big":"电子产品","sub":"配件","item":"电池","qty":"5号、7号","note":""},{"id":34,"big":"电子产品","sub":"配件","item":"键盘","qty":"","note":""},{"id":35,"big":"日用品","sub":"洗漱","item":"牙刷、牙膏、牙杯","qty":"","note":"先带一点，落地后购买"},{"id":36,"big":"日用品","sub":"洗漱","item":"洗发水、沐浴露、护发素、发膜","qty":"","note":""},{"id":37,"big":"日用品","sub":"洗漱","item":"浴巾、毛巾","qty":"","note":""},{"id":38,"big":"日用品","sub":"洗漱","item":"搓澡巾","qty":"","note":""},{"id":39,"big":"日用品","sub":"洗漱","item":"梳子","qty":"","note":""},{"id":40,"big":"日用品","sub":"洗漱","item":"指甲刀套装","qty":"","note":""},{"id":41,"big":"日用品","sub":"洗漱","item":"吹风机","qty":"","note":""},{"id":42,"big":"日用品","sub":"洗漱","item":"身体乳","qty":"","note":""},{"id":43,"big":"日用品","sub":"洗漱","item":"浴帽","qty":"","note":""},{"id":44,"big":"日用品","sub":"洗漱","item":"发绳","qty":"","note":""},{"id":45,"big":"日用品","sub":"洗漱","item":"一次性马桶垫","qty":"","note":""},{"id":46,"big":"日用品","sub":"护肤品","item":"防晒霜、防晒喷雾","qty":"","note":""},{"id":47,"big":"日用品","sub":"护肤品","item":"水乳","qty":"","note":""},{"id":48,"big":"日用品","sub":"护肤品","item":"面膜","qty":"","note":""},{"id":49,"big":"日用品","sub":"护肤品","item":"祛痘凝胶","qty":"","note":""},{"id":50,"big":"日用品","sub":"护肤品","item":"补水喷雾","qty":"","note":""},{"id":51,"big":"日用品","sub":"护肤品","item":"唇膏、凡士林","qty":"","note":""},{"id":52,"big":"日用品","sub":"护肤品","item":"护手霜","qty":"","note":""},{"id":53,"big":"日用品","sub":"护肤品","item":"眼霜","qty":"","note":""},{"id":54,"big":"日用品","sub":"卸妆","item":"卸妆乳","qty":"","note":""},{"id":55,"big":"日用品","sub":"卸妆","item":"眼唇卸","qty":"","note":""},{"id":56,"big":"日用品","sub":"卸妆","item":"洗脸巾","qty":"","note":""},{"id":57,"big":"日用品","sub":"卸妆","item":"洗面奶","qty":"","note":""},{"id":58,"big":"日用品","sub":"卸妆","item":"卸妆棉","qty":"","note":""},{"id":59,"big":"日用品","sub":"床上用品","item":"床单/被套/枕套","qty":"2套","note":""},{"id":60,"big":"日用品","sub":"床上用品","item":"夏凉被/薄毯","qty":"","note":""},{"id":61,"big":"日用品","sub":"床上用品","item":"枕头","qty":"1个","note":""},{"id":62,"big":"日用品","sub":"床上用品","item":"玩偶","qty":"","note":""},{"id":63,"big":"日用品","sub":"日用品","item":"衣架","qty":"若干","note":""},{"id":64,"big":"日用品","sub":"日用品","item":"洗衣袋","qty":"","note":""},{"id":65,"big":"日用品","sub":"日用品","item":"挂钩","qty":"","note":""},{"id":66,"big":"日用品","sub":"日用品","item":"针线包","qty":"1个","note":""},{"id":67,"big":"日用品","sub":"日用品","item":"折叠购物袋","qty":"","note":""},{"id":68,"big":"日用品","sub":"日用品","item":"眼罩+耳塞","qty":"","note":""},{"id":69,"big":"日用品","sub":"日用品","item":"水杯/保温杯","qty":"","note":""},{"id":70,"big":"日用品","sub":"日用品","item":"棉签","qty":"","note":""},{"id":71,"big":"日用品","sub":"日用品","item":"口罩","qty":"","note":""},{"id":72,"big":"日用品","sub":"日用品","item":"手持电风扇","qty":"","note":""},{"id":73,"big":"日用品","sub":"日用品","item":"遮阳伞、雨伞","qty":"各2把","note":""},{"id":74,"big":"日用品","sub":"日用品","item":"除湿袋","qty":"","note":""},{"id":75,"big":"日用品","sub":"日用品","item":"止汗露","qty":"","note":""},{"id":76,"big":"日用品","sub":"日用品","item":"酒精湿巾","qty":"","note":""},{"id":77,"big":"日用品","sub":"日用品","item":"小台灯","qty":"","note":""},{"id":78,"big":"日用品","sub":"日用品","item":"U型枕","qty":"","note":""},{"id":79,"big":"日用品","sub":"日用品","item":"过滤花洒","qty":"","note":""},{"id":80,"big":"日用品","sub":"日用品","item":"卷纸/纸抽","qty":"","note":""},{"id":81,"big":"日用品","sub":"日用品","item":"卫生巾","qty":"","note":""},{"id":82,"big":"日用品","sub":"日用品","item":"蒸汽熨斗","qty":"","note":""},{"id":83,"big":"日用品","sub":"日用品","item":"胶带","qty":"","note":""},{"id":84,"big":"日用品","sub":"日用品","item":"粘毛器","qty":"","note":"记得带替换装"},{"id":85,"big":"日用品","sub":"日用品","item":"密封袋","qty":"","note":""},{"id":86,"big":"日用品","sub":"日用品","item":"眼贴/蒸汽眼罩","qty":"","note":""},{"id":87,"big":"日用品","sub":"文具","item":"笔","qty":"","note":"中性笔、荧光笔、铅笔、橡皮……"},{"id":88,"big":"日用品","sub":"文具","item":"本子","qty":"","note":""},{"id":89,"big":"日用品","sub":"文具","item":"格尺","qty":"","note":""},{"id":90,"big":"日用品","sub":"文具","item":"订书器、订书钉","qty":"","note":""},{"id":91,"big":"日用品","sub":"文具","item":"燕尾夹","qty":"","note":""},{"id":92,"big":"日用品","sub":"文具","item":"书签","qty":"","note":""},{"id":93,"big":"日用品","sub":"文具","item":"剪刀","qty":"","note":""},{"id":94,"big":"日用品","sub":"文具","item":"文件袋","qty":"","note":""},{"id":95,"big":"日用品","sub":"文具","item":"便利贴、指示贴","qty":"","note":""},{"id":96,"big":"日用品","sub":"文具","item":"书","qty":"","note":""},{"id":97,"big":"日用品","sub":"厨房用具","item":"多功能电煮锅","qty":"","note":""},{"id":98,"big":"日用品","sub":"厨房用具","item":"烧水壶","qty":"","note":""},{"id":99,"big":"日用品","sub":"厨房用具","item":"筷子","qty":"","note":""},{"id":100,"big":"日用品","sub":"厨房用具","item":"勺子","qty":"","note":""},{"id":101,"big":"日用品","sub":"厨房用具","item":"水果刀","qty":"","note":""},{"id":102,"big":"日用品","sub":"厨房用具","item":"饭盒","qty":"","note":""},{"id":103,"big":"日用品","sub":"厨房用具","item":"调料","qty":"","note":""},{"id":104,"big":"日用品","sub":"厨房用具","item":"一次性手套","qty":"","note":""},{"id":105,"big":"日用品","sub":"厨房用具","item":"保鲜膜","qty":"","note":""},{"id":106,"big":"日用品","sub":"厨房用具","item":"小电饭煲","qty":"","note":""},{"id":107,"big":"日用品","sub":"化妆品","item":"底妆、眼妆、遮瑕、修容、定妆……","qty":"","note":"按自己平时用的来"},{"id":108,"big":"日用品","sub":"化妆品","item":"化妆刷","qty":"","note":""},{"id":109,"big":"日用品","sub":"化妆品","item":"化妆镜","qty":"","note":""},{"id":110,"big":"日用品","sub":"化妆品","item":"直板夹、玉米夹","qty":"","note":""},{"id":111,"big":"日用品","sub":"化妆品","item":"定型喷雾","qty":"","note":""},{"id":112,"big":"日用品","sub":"化妆品","item":"美瞳+护理液","qty":"","note":""},{"id":113,"big":"日用品","sub":"化妆品","item":"假睫毛","qty":"","note":""},{"id":114,"big":"日用品","sub":"化妆品","item":"香水","qty":"","note":""},{"id":115,"big":"日用品","sub":"化妆品","item":"修眉刀、睫毛夹","qty":"","note":""},{"id":116,"big":"日用品","sub":"化妆品","item":"穿戴甲","qty":"","note":""},{"id":117,"big":"日用品","sub":"清洁用品","item":"刷子","qty":"","note":""},{"id":118,"big":"日用品","sub":"清洁用品","item":"盆","qty":"","note":""},{"id":119,"big":"日用品","sub":"清洁用品","item":"扫把","qty":"","note":""},{"id":120,"big":"日用品","sub":"清洁用品","item":"垃圾袋","qty":"","note":""},{"id":121,"big":"日用品","sub":"清洁用品","item":"垃圾桶","qty":"","note":""},{"id":122,"big":"日用品","sub":"清洁用品","item":"纱窗贴纸","qty":"","note":""},{"id":123,"big":"日用品","sub":"清洁用品","item":"洗衣液/洗衣凝珠","qty":"","note":""},{"id":124,"big":"日用品","sub":"清洁用品","item":"香皂、肥皂","qty":"","note":""},{"id":125,"big":"日用品","sub":"清洁用品","item":"留香珠","qty":"","note":""},{"id":126,"big":"日用品","sub":"清洁用品","item":"清洁手套","qty":"","note":""},{"id":127,"big":"日用品","sub":"清洁用品","item":"抹布","qty":"","note":""},{"id":128,"big":"日用品","sub":"清洁用品","item":"除螨喷雾","qty":"","note":""},{"id":129,"big":"衣物","sub":"日常","item":"短袖、短裤","qty":"","note":""},{"id":130,"big":"衣物","sub":"日常","item":"长裤（薄款）","qty":"","note":""},{"id":131,"big":"衣物","sub":"日常","item":"连衣裙/半身裙","qty":"","note":""},{"id":132,"big":"衣物","sub":"日常","item":"内衣裤","qty":"","note":""},{"id":133,"big":"衣物","sub":"日常","item":"袜子","qty":"","note":""},{"id":134,"big":"衣物","sub":"日常","item":"薄外套/开衫","qty":"","note":""},{"id":135,"big":"衣物","sub":"日常","item":"吊带","qty":"","note":""},{"id":136,"big":"衣物","sub":"日常","item":"衬衫","qty":"","note":""},{"id":137,"big":"衣物","sub":"特殊场合","item":"正装/小礼服","qty":"","note":"面试/汇报/晚宴"},{"id":138,"big":"衣物","sub":"特殊场合","item":"泳衣（泳镜、泳帽）","qty":"2套","note":""},{"id":139,"big":"衣物","sub":"特殊场合","item":"运动服","qty":"2套","note":""},{"id":140,"big":"衣物","sub":"特殊场合","item":"睡衣、睡裙","qty":"","note":""},{"id":141,"big":"衣物","sub":"鞋类","item":"运动鞋","qty":"","note":""},{"id":142,"big":"衣物","sub":"鞋类","item":"凉鞋","qty":"","note":""},{"id":143,"big":"衣物","sub":"鞋类","item":"拖鞋","qty":"","note":""},{"id":144,"big":"衣物","sub":"鞋类","item":"平底单鞋","qty":"","note":""},{"id":145,"big":"衣物","sub":"鞋类","item":"高跟鞋","qty":"","note":""},{"id":146,"big":"衣物","sub":"鞋类","item":"洞洞鞋","qty":"","note":""},{"id":147,"big":"衣物","sub":"配饰","item":"帆布包、书包、单肩包……","qty":"","note":""},{"id":148,"big":"衣物","sub":"配饰","item":"首饰","qty":"若干","note":"项链、耳环、手链、发夹……"},{"id":149,"big":"衣物","sub":"配饰","item":"腰带","qty":"","note":""},{"id":150,"big":"衣物","sub":"配饰","item":"墨镜","qty":"","note":""},{"id":151,"big":"衣物","sub":"配饰","item":"遮阳帽","qty":"","note":""},{"id":152,"big":"药品","sub":"感冒类","item":"个人常用药","qty":"","note":"按个人需要准备；核对药品成分及 HSA 许可要求，保留原包装。"},{"id":153,"big":"药品","sub":"外用药","item":"口罩、创可贴、碘伏棉签、风油精、海盐喷雾、生理盐水、花露水、紫草膏、西瓜霜、体温计","qty":"适量","note":""},{"id":154,"big":"药品","sub":"眼药水","item":"个人眼部护理用品","qty":"","note":"药品请核对成分和入境要求，不按本清单购买指定药物。"},{"id":155,"big":"药品","sub":"保健品","item":"个人保健品","qty":"","note":"按个人需要准备，保留原包装并核对入境要求。"},{"id":156,"big":"药品","sub":"其他","item":"蚂蚁药、蟑螂药","qty":"","note":""},{"id":157,"big":"证件文件","sub":"入境","item":"eForm 16（收到校方通知后提交）","qty":"","note":"按校方提供的 SOLAR 登录信息完成；提交前仔细核对资料。"},{"id":158,"big":"证件文件","sub":"入境","item":"IPA Letter 及 Student Pass 缴费收据","qty":"","note":"保存电子版，并按本人 IPA 和校方通知决定是否打印。"},{"id":159,"big":"证件文件","sub":"学校报到","item":"Offer及留位费收据","qty":"","note":"不同学校和项目要求不同，以本人录取及报到通知为准。"},{"id":162,"big":"电子产品","sub":"配件","item":"电脑充电器","qty":"","note":""},{"id":163,"big":"电子产品","sub":"配件","item":"手机充电线 / 数据线","qty":"","note":""},{"id":164,"big":"电子产品","sub":"配件","item":"电源收纳包","qty":"","note":""},{"id":165,"big":"电子产品","sub":"配件","item":"数据线理线器","qty":"","note":""},{"id":166,"big":"电子产品","sub":"配件","item":"手表充电器 / 手表膜 / 备用手表带","qty":"","note":"戴智能手表再带"},{"id":167,"big":"电子产品","sub":"配件","item":"电动牙刷刷头","qty":"","note":""},{"id":168,"big":"日用品","sub":"随身","item":"干纸巾","qty":"","note":""},{"id":169,"big":"日用品","sub":"随身","item":"湿纸巾","qty":"","note":""},{"id":170,"big":"日用品","sub":"随身","item":"零食","qty":"","note":"肉类、蛋类及其他食品存在来源和数量限制，出发前查阅 SFA 最新规定。"},{"id":171,"big":"日用品","sub":"旅行用品","item":"一次性内裤","qty":"","note":""},{"id":172,"big":"日用品","sub":"旅行用品","item":"一次性毛巾","qty":"","note":""},{"id":173,"big":"日用品","sub":"旅行用品","item":"折叠水壶","qty":"","note":""},{"id":174,"big":"日用品","sub":"旅行用品","item":"晾衣绳","qty":"","note":""},{"id":175,"big":"日用品","sub":"旅行用品","item":"手机防水袋","qty":"","note":""},{"id":176,"big":"日用品","sub":"旅行用品","item":"旅行收纳包","qty":"","note":""},{"id":177,"big":"日用品","sub":"洗漱","item":"洗漱杯","qty":"","note":""},{"id":178,"big":"日用品","sub":"清洁用品","item":"洗手液","qty":"","note":""},{"id":179,"big":"日用品","sub":"文具","item":"计算器","qty":"","note":""},{"id":180,"big":"日用品","sub":"文具","item":"回形针","qty":"","note":""},{"id":181,"big":"衣物","sub":"日常","item":"打底裤","qty":"","note":""},{"id":182,"big":"衣物","sub":"日常","item":"外穿背心","qty":"","note":""},{"id":183,"big":"衣物","sub":"日常","item":"家居服","qty":"","note":""},{"id":184,"big":"衣物","sub":"配饰","item":"胸贴","qty":"","note":""},{"id":185,"big":"日用品","sub":"化妆品","item":"腋下修毛刀","qty":"","note":""},{"id":186,"big":"日用品","sub":"化妆品","item":"卸妆油","qty":"","note":""},{"id":187,"big":"日用品","sub":"化妆品","item":"美甲套装","qty":"","note":""},{"id":188,"big":"药品","sub":"常用药","item":"个人肠胃常用药","qty":"","note":"按个人需要准备；核对成分及 HSA 许可要求。"},{"id":190,"big":"药品","sub":"外用药","item":"个人常用外用药膏","qty":"","note":"按个人需要准备；核对成分及 HSA 许可要求。"},{"id":191,"big":"药品","sub":"驱虫","item":"驱蚊水 / 蚊灯","qty":"","note":""}];
+const CONTENT_VERSION = "2026.07.19";
+const VERIFIED_AT = "2026-07-18";
+const STORE_KEY = "sgPackingChecklist_v3";
+const PREVIOUS_STORE_KEY = "sgPackingChecklist_v2";
+const LEGACY_STORE_KEY = "sgPackingChecklist_v1";
+const SCHEMA_VERSION = 3;
+const CUSTOM_BIG = "自定义";
+const CUSTOM_SUB = "新增条目";
+const CUSTOM_CATEGORY_ID = "custom";
+const SWIPE_WIDTH = 168;
+
+const PACKS = {
+  core: { name: "默认分类", description: "证件、随身、基础数码、基础洗漱、基础衣物和安全提醒。" },
+  dorm: { name: "住宿与清洁", description: "床品、房间用品、洗衣和清洁用品。" },
+  study: { name: "学习文具", description: "按课程和个人学习习惯准备的纸质文具。" },
+  cooking: { name: "厨房与做饭", description: "确认住宿允许做饭后按需启用。" },
+  beauty: { name: "美妆与个人护理", description: "护肤、卸妆、彩妆、美发和个人护理用品。" },
+  clothing: { name: "扩展衣物与鞋包", description: "正式场合、运动、泳衣、额外鞋包和配饰。" },
+  tech: { name: "数码扩展", description: "平板、耳机、支架、键盘和智能手表配件。" },
+  health: { name: "药品与健康", description: "个人常用药和健康用品，需核对入境要求。" },
+  travel: { name: "旅行用品", description: "一次性用品、旅途辅助和旅行收纳用品。" }
+};
+const OPTIONAL_PACK_IDS = Object.keys(PACKS).filter(id => id !== "core");
+
+const CATEGORIES = [
+  { id: "documents", name: "证件与手续", packId: "core" },
+  { id: "carry", name: "随身与出行", packId: "core" },
+  { id: "base-tech", name: "数码与充电", packId: "core" },
+  { id: "base-wash", name: "基础洗漱", packId: "core" },
+  { id: "base-clothing", name: "基础衣物", packId: "core" },
+  { id: "safety", name: "入境与行李提醒", packId: "core" },
+  { id: "dorm", name: "住宿与清洁", packId: "dorm" },
+  { id: "study", name: "学习文具", packId: "study" },
+  { id: "cooking", name: "厨房与做饭", packId: "cooking" },
+  { id: "beauty", name: "美妆与个人护理", packId: "beauty" },
+  { id: "clothing", name: "扩展衣物与鞋包", packId: "clothing" },
+  { id: "tech", name: "数码扩展", packId: "tech" },
+  { id: "health", name: "药品与健康", packId: "health" },
+  { id: "travel", name: "旅行用品", packId: "travel" }
+];
+const CATEGORY_BY_ID = new Map(CATEGORIES.map(category => [category.id, category]));
+
+const SOURCE_LINKS = {
+  ica_sgac: {
+    label: "ICA：SG Arrival Card",
+    url: "https://www.ica.gov.sg/enter-transit-depart/entering-singapore/sg-arrival-card"
+  },
+  ica_stp: {
+    label: "ICA：Student’s Pass",
+    url: "https://www.ica.gov.sg/reside/STP/collect"
+  },
+  hsa_meds: {
+    label: "HSA：携带个人药品",
+    url: "https://www.hsa.gov.sg/travelling-with-medication-and-medical-devices/personal-medications/"
+  },
+  caas_baggage: {
+    label: "CAAS：航空行李安全",
+    url: "https://www.caas.gov.sg/resources/safety-tips-for-air-travel/pack-for-your-flight/"
+  },
+  customs: {
+    label: "Singapore Customs：禁止及受管制物品",
+    url: "https://www.customs.gov.sg/at-customs/arriving-in-singapore/prohibited-controlled-goods/"
+  },
+  sfa_food: {
+    label: "SFA：个人携带食品限制",
+    url: "https://www.sfa.gov.sg/bringing-food-for-private-consumption-from-overseas/list-of-food---food-products-allowed"
+  },
+  hsa_vaping: {
+    label: "HSA：电子烟禁令",
+    url: "https://www.hsa.gov.sg/tobacco-regulation/vaping-enforcement/"
+  },
+  github_privacy: {
+    label: "GitHub Pages：服务与隐私边界",
+    url: "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+  }
+};
+
+const REMOVED_LEGACY_IDS = new Set([160, 161, 177, 183, 189]);
+const CONDITIONAL_LEGACY_IDS = new Set([5, 6, 7, 8, 9, 10, 11, 12, 137, 138, 139, 157, 159]);
+const CORE_TECH_IDS = new Set([20, 22, 24, 25, 28, 162, 163]);
+const CORE_DAILY_IDS = new Set([35, 36, 37, 39, 40, 63, 67, 69, 70, 71, 73, 80, 83, 85, 168, 169, 170, 177]);
+const CORE_CLOTHING_IDS = new Set([129, 130, 132, 133, 134, 141, 143]);
+const BUY_AFTER_ARRIVAL_IDS = new Set([59, 60, 61, 62, 63, 65, 72, 74, 77, 79, 80, 82, 97, 98, 106, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 156, 173, 178, 191]);
+const CARRY_ON_IDS = new Set([1, 2, 3, 4, 5, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24, 29, 157, 158, 159, 162]);
+const CHECKED_IDS = new Set([40, 46, 50, 93, 101, 110, 111, 114, 115, 185, 187, 190, 191]);
+
+const ITEM_OVERRIDES = {
+  2: { note: "入境时按本人 IPA Letter 和校方通知准备；IPA 不是 SG Arrival Card。", sourceKey: "ica_stp" },
+  8: { note: "是否需要纸质原件或复印件，以校方通知为准。" },
+  10: { note: "仅在本人 IPA 或校方要求时准备。" },
+  11: { qty: "20张左右", note: "光面、绒面都准备；保留合规电子版，实体尺寸以校方通知为准。" },
+  13: { qty: "", note: "可以带1000新币左右，以备不时之需。" },
+  22: { qty: "按需", note: "备用机不是必需品。" },
+  24: { qty: "最多2个", note: "仅限随身：≤100Wh（约27000mAh）可带；100–160Wh须航司批准；>160Wh禁带。", sourceKey: "caas_baggage", baggageMode: "carry_on" },
+  28: { item: "手机充电器" },
+  32: { item: "手机支架或电脑支架" },
+  33: { item: "5号 / 7号电池", qty: "" },
+  47: { item: "爽肤水 / 乳液" },
+  60: { item: "薄被或薄毯" },
+  69: { item: "水杯或保温杯" },
+  86: { item: "眼贴或蒸汽眼罩" },
+  96: { item: "个人需要的书籍" },
+  101: { note: "水果刀无论刀刃长度都不可随身，必须托运；“超过6cm”只适用于剪刀。", sourceKey: "caas_baggage", baggageMode: "checked" },
+  123: { item: "洗衣液或洗衣凝珠" },
+  124: { item: "香皂或肥皂" },
+  131: { item: "连衣裙或半身裙" },
+  134: { item: "薄外套或开衫" },
+  137: { item: "正装或正式服装" },
+  140: { item: "睡衣 / 家居服" },
+  141: { item: "运动鞋" },
+  152: { item: "常用非处方药、处方及医生证明", qty: "", note: "按个人既往使用情况少量准备，保留原包装。", sourceKey: "hsa_meds" },
+  154: { item: "眼药水 / 隐形眼镜护理液", qty: "", note: "按个人既往使用情况少量准备，保留原包装。", sourceKey: "hsa_meds" },
+  155: { item: "个人保健品", qty: "", note: "按个人需要准备，保留原包装并核对入境要求。", sourceKey: "hsa_meds" },
+  157: { item: "eForm 16（收到校方通知后提交）", note: "按校方提供的 SOLAR 登录信息完成；提交前仔细核对资料。", sourceKey: "ica_stp", baggageMode: "" },
+  158: { item: "Student's Pass 缴费收据（如适用）", note: "保存电子版，并按本人 IPA 和校方通知决定是否打印。", sourceKey: "ica_stp" },
+  159: { item: "留位费收据（如适用）", note: "不同学校和项目要求不同，以本人录取及报到通知为准。" },
+  163: { item: "手机充电线或数据线" },
+  170: { note: "易误带：肉干、肉松饼、香肠/火腿肠、含肉月饼/粽子；含肉制品须来自 SFA 批准来源，拿不准就不带。", sourceKey: "sfa_food" },
+  188: { item: "肠胃药（如蒙脱石散、口服补液盐）", note: "按个人既往使用情况少量准备，保留原包装。", sourceKey: "hsa_meds" },
+  190: { item: "外用药膏（抗菌、止痒、烫伤）", note: "按个人既往使用情况少量准备，保留原包装。", sourceKey: "hsa_meds" }
+};
+
+const SPLIT_ITEMS = {
+  6: [
+    { item: "毕业证", qty: "1+2", note: "原件、翻译件和复印件要求以校方通知为准。" },
+    { item: "学位证", qty: "1+2", note: "原件、翻译件和复印件要求以校方通知为准。" }
+  ],
+  20: [{ item: "笔记本电脑" }, { item: "鼠标" }],
+  27: [{ item: "手机壳" }, { item: "手机膜" }],
+  35: [
+    { item: "牙刷", baggageMode: "carry_on" },
+    { item: "牙膏", baggageMode: "check_airline" },
+    { item: "洗漱杯", baggageMode: "buy" }
+  ],
+  36: [
+    { item: "洗发水", baggageMode: "checked" },
+    { item: "沐浴露", baggageMode: "checked" },
+    { item: "护发素", baggageMode: "checked" },
+    { item: "发膜", baggageMode: "checked" }
+  ],
+  37: [{ item: "浴巾" }, { item: "毛巾" }],
+  46: [
+    { item: "防晒霜", baggageMode: "checked" },
+    { item: "防晒喷雾", baggageMode: "check_airline", sourceKey: "caas_baggage" }
+  ],
+  51: [{ item: "润唇膏" }, { item: "凡士林" }],
+  59: [
+    { item: "床单", qty: "按床尺寸", baggageMode: "buy" },
+    { item: "被套", qty: "按床尺寸", baggageMode: "buy" },
+    { item: "枕套", qty: "按床尺寸", baggageMode: "buy" }
+  ],
+  68: [{ item: "眼罩" }, { item: "耳塞" }],
+  73: [{ item: "遮阳伞", qty: "按需" }, { item: "雨伞", qty: "1把" }],
+  80: [{ item: "卷纸", baggageMode: "buy" }, { item: "纸抽", baggageMode: "buy" }],
+  90: [{ item: "订书器" }, { item: "订书钉" }],
+  95: [{ item: "便利贴" }, { item: "指示贴" }],
+  107: [{ item: "底妆" }, { item: "眼妆" }, { item: "遮瑕" }, { item: "修容" }, { item: "定妆用品" }],
+  110: [{ item: "直板夹", baggageMode: "checked" }, { item: "玉米夹", baggageMode: "checked" }],
+  112: [{ item: "美瞳" }, { item: "美瞳护理液", baggageMode: "checked" }],
+  115: [{ item: "修眉刀", baggageMode: "checked" }, { item: "睫毛夹" }],
+  129: [{ item: "短袖" }, { item: "短裤" }],
+  138: [{ item: "泳衣" }, { item: "泳镜" }, { item: "泳帽" }],
+  147: [{ item: "帆布包" }, { item: "书包" }, { item: "单肩包" }],
+  152: [
+    { item: "退烧止痛及咽喉药（如布洛芬、对乙酰氨基酚、西瓜霜）", note: "按个人既往使用情况少量准备，保留原包装。", sourceKey: "hsa_meds" },
+    { item: "处方或医生证明（如适用）", note: "携带受管制药品时，准备处方/医生证明并至少提前2周向 HSA 申请。", sourceKey: "hsa_meds" }
+  ],
+  153: [
+    { item: "创可贴", sourceKey: "hsa_meds" },
+    { item: "碘伏棉签", sourceKey: "hsa_meds" },
+    { item: "生理盐水", sourceKey: "hsa_meds" },
+    { item: "体温计", sourceKey: "" }
+  ],
+  156: [{ item: "蚂蚁药", baggageMode: "buy" }, { item: "蟑螂药", baggageMode: "buy" }],
+  166: [{ item: "手表充电器" }, { item: "手表膜" }, { item: "备用手表带" }],
+  191: [
+    { item: "驱蚊水", baggageMode: "check_airline", sourceKey: "caas_baggage" },
+    { item: "蚊灯", baggageMode: "buy", sourceKey: "" }
+  ]
+};
+
+const EXTRA_ITEMS = [
+  {
+    id: "item_sun_protection_clothing",
+    big: "衣物",
+    sub: "日常",
+    item: "防晒服",
+    qty: "",
+    note: "",
+    kind: "physical",
+    packId: "core",
+    required: true,
+    phase: "packing",
+    baggageMode: "",
+    sourceKey: "",
+    verifiedAt: VERIFIED_AT,
+    sortOrder: 13450
+  },
+  {
+    id: "task_sg_arrival_card",
+    big: "证件文件",
+    sub: "入境",
+    item: "提交 SG Arrival Card",
+    qty: "",
+    note: "抵达日前3天内（含抵达日）通过 ICA 官方渠道免费提交；SG Arrival Card 不是签证。",
+    kind: "task",
+    packId: "core",
+    required: true,
+    phase: "before_departure",
+    baggageMode: "",
+    sourceKey: "ica_sgac",
+    verifiedAt: VERIFIED_AT,
+    sortOrder: 250
+  },
+  {
+    id: "safety_power_bank",
+    big: "限制与安全",
+    sub: "航空行李",
+    item: "确认充电宝和备用锂电池放入随身行李",
+    qty: "",
+    note: "仅限随身，最多2个；≤100Wh可带，100–160Wh须航司批准，>160Wh禁带。",
+    kind: "safety",
+    packId: "core",
+    required: true,
+    phase: "before_departure",
+    baggageMode: "carry_on",
+    sourceKey: "caas_baggage",
+    verifiedAt: VERIFIED_AT,
+    sortOrder: 90001
+  },
+  {
+    id: "safety_sharp_items",
+    big: "限制与安全",
+    sub: "航空行李",
+    item: "确认刀剪等尖锐物品按规定托运",
+    qty: "",
+    note: "水果刀无论刀刃长度都不可随身，必须托运；“超过6cm”只适用于剪刀。",
+    kind: "safety",
+    packId: "core",
+    required: true,
+    phase: "before_departure",
+    baggageMode: "checked",
+    sourceKey: "caas_baggage",
+    verifiedAt: VERIFIED_AT,
+    sortOrder: 90002
+  },
+  {
+    id: "safety_medicine_rules",
+    big: "限制与安全",
+    sub: "入境限制",
+    item: "核对个人药品的 HSA 许可要求",
+    qty: "",
+    note: "禁止含大麻、THC、CBD的药品及药用口香糖。含可待因、右美沙芬、地西泮/阿普唑仑、唑吡坦、哌甲酯等须提前申请。",
+    kind: "safety",
+    packId: "core",
+    required: true,
+    phase: "before_departure",
+    baggageMode: "check_airline",
+    sourceKey: "hsa_meds",
+    verifiedAt: VERIFIED_AT,
+    sortOrder: 90003
+  },
+  {
+    id: "safety_food_rules",
+    big: "限制与安全",
+    sub: "入境限制",
+    item: "核对零食和食品是否符合新加坡入境限制",
+    qty: "",
+    note: "非肉类加工食品（饼干、坚果等）合计≤5kg/5L且总值≤S$100；含肉制品须看批准来源。",
+    kind: "safety",
+    packId: "core",
+    required: true,
+    phase: "before_departure",
+    baggageMode: "check_airline",
+    sourceKey: "sfa_food",
+    verifiedAt: VERIFIED_AT,
+    sortOrder: 90004
+  },
+  {
+    id: "safety_no_vaping",
+    big: "限制与安全",
+    sub: "禁止携带",
+    item: "确认未携带电子烟及相关组件",
+    qty: "",
+    note: "电子烟、烟弹和相关组件在新加坡属于禁止物品。",
+    kind: "safety",
+    packId: "core",
+    required: true,
+    phase: "before_departure",
+    baggageMode: "prohibited",
+    sourceKey: "hsa_vaping",
+    verifiedAt: VERIFIED_AT,
+    sortOrder: 90005
+  }
+];
+
+function stableItemId(legacyId, childIndex) {
+  const base = "item_" + String(legacyId).padStart(3, "0");
+  return childIndex === undefined ? base : base + "_" + String(childIndex + 1).padStart(2, "0");
+}
+
+function packForLegacyItem(item) {
+  if (item.big === "证件文件") return "core";
+  if (item.big === "电子产品") return CORE_TECH_IDS.has(item.id) ? "core" : "tech";
+  if (item.big === "衣物") return CORE_CLOTHING_IDS.has(item.id) ? "core" : "clothing";
+  if (item.big === "药品") return "health";
+  if (item.sub === "厨房用具") return "cooking";
+  if (["护肤品", "卸妆", "化妆品"].includes(item.sub) || [75, 81, 167, 184, 185, 186, 187].includes(item.id)) return "beauty";
+  return CORE_DAILY_IDS.has(item.id) ? "core" : "dorm";
+}
+
+function baggageForLegacyItem(item) {
+  if (BUY_AFTER_ARRIVAL_IDS.has(item.id)) return "buy";
+  if (CARRY_ON_IDS.has(item.id) || item.big === "证件文件") return "carry_on";
+  if (CHECKED_IDS.has(item.id)) return "checked";
+  return "";
+}
+
+function kindForLegacyItem(item) {
+  if (item.id === 157) return "task";
+  if (item.id >= 13 && item.id <= 19) return "physical";
+  if (item.big === "证件文件") return "document";
+  return "physical";
+}
+
+function sourceForLegacyItem(item) {
+  if ([2, 157, 158].includes(item.id)) return "ica_stp";
+  if ([24, 40, 46, 50, 93, 101, 110, 111, 114, 115, 185, 187, 191].includes(item.id)) return "caas_baggage";
+  if ([152, 153, 154, 155, 188, 190].includes(item.id)) return "hsa_meds";
+  if (item.id === 170) return "sfa_food";
+  return "";
+}
+
+const ACCOMMODATION_ITEM_IDS = new Set([
+  "item_059_01", "item_059_02", "item_059_03", "item_060", "item_061", "item_062",
+  "item_063", "item_064", "item_065", "item_066", "item_074", "item_077", "item_079",
+  "item_080_01", "item_080_02", "item_082", "item_083", "item_084",
+  "item_117", "item_118", "item_119", "item_120", "item_121", "item_122", "item_123",
+  "item_124", "item_125", "item_126", "item_127", "item_128", "item_156_01",
+  "item_156_02", "item_178", "item_191_02"
+]);
+const TRAVEL_ITEM_IDS = new Set([
+  "item_045", "item_068_01", "item_068_02", "item_072", "item_076", "item_078",
+  "item_085", "item_171", "item_172", "item_173", "item_174", "item_175", "item_176"
+]);
+const BEAUTY_EXTRA_ITEM_IDS = new Set([
+  "item_036_03", "item_036_04", "item_038", "item_041", "item_042", "item_043",
+  "item_044", "item_070", "item_086", "item_167", "item_184"
+]);
+const BASIC_WASH_ITEM_IDS = new Set([
+  "item_035_01", "item_035_02", "item_035_03", "item_036_01", "item_036_02",
+  "item_037_01", "item_037_02", "item_039", "item_040"
+]);
+const CARRY_ITEM_IDS = new Set([
+  "item_013", "item_014", "item_015", "item_016", "item_017", "item_018", "item_019",
+  "item_067", "item_069", "item_071", "item_073_01", "item_073_02", "item_168",
+  "item_169", "item_170"
+]);
+
+function categoryIdForItem(item) {
+  if (item.big === "限制与安全") return "safety";
+  if (item.big === "证件文件") return item.sub === "备用" ? "carry" : "documents";
+  if (ACCOMMODATION_ITEM_IDS.has(item.id)) return "dorm";
+  if (item.sub === "文具") return "study";
+  if (item.packId === "cooking") return "cooking";
+  if (item.packId === "beauty" || BEAUTY_EXTRA_ITEM_IDS.has(item.id)) return "beauty";
+  if (item.packId === "clothing") return "clothing";
+  if (item.packId === "tech") return "tech";
+  if (item.packId === "health") return "health";
+  if (TRAVEL_ITEM_IDS.has(item.id)) return "travel";
+  if (BASIC_WASH_ITEM_IDS.has(item.id)) return "base-wash";
+  if (CARRY_ITEM_IDS.has(item.id)) return "carry";
+  if (item.big === "电子产品") return "base-tech";
+  if (item.big === "衣物") return "base-clothing";
+  throw new Error("条目缺少分类：" + item.id + " " + item.item);
+}
+
+function applyClassification(item) {
+  const categoryId = categoryIdForItem(item);
+  const category = CATEGORY_BY_ID.get(categoryId);
+  return {
+    ...item,
+    categoryId,
+    categoryName: category.name,
+    packId: category.packId,
+    required: category.packId === "core"
+  };
+}
+
+function buildCatalog() {
+  const catalog = [];
+  LEGACY_ITEMS.forEach(raw => {
+    if (REMOVED_LEGACY_IDS.has(raw.id)) return;
+    const override = ITEM_OVERRIDES[raw.id] || {};
+    const base = {
+      id: stableItemId(raw.id),
+      legacyId: raw.id,
+      big: raw.big,
+      sub: raw.sub,
+      item: override.item !== undefined ? override.item : raw.item,
+      qty: override.qty !== undefined ? override.qty : raw.qty,
+      note: override.note !== undefined ? override.note : raw.note,
+      kind: kindForLegacyItem(raw),
+      packId: packForLegacyItem(raw),
+      required: packForLegacyItem(raw) === "core" && !CONDITIONAL_LEGACY_IDS.has(raw.id),
+      phase: BUY_AFTER_ARRIVAL_IDS.has(raw.id) ? "arrival" : (raw.big === "证件文件" ? "before_departure" : "packing"),
+      baggageMode: override.baggageMode !== undefined ? override.baggageMode : baggageForLegacyItem(raw),
+      sourceKey: override.sourceKey !== undefined ? override.sourceKey : sourceForLegacyItem(raw),
+      verifiedAt: VERIFIED_AT,
+      sortOrder: raw.id * 100
+    };
+    if (raw.id === 157) base.sortOrder = 130;
+    if (raw.id === 158) base.sortOrder = 210;
+    const children = SPLIT_ITEMS[raw.id];
+    if (!children) {
+      catalog.push(base);
+      return;
+    }
+    children.forEach((child, index) => {
+      catalog.push({
+        ...base,
+        ...child,
+        id: stableItemId(raw.id, index),
+        qty: child.qty !== undefined ? child.qty : "",
+        note: child.note !== undefined ? child.note : base.note,
+        baggageMode: child.baggageMode !== undefined ? child.baggageMode : base.baggageMode,
+        sourceKey: child.sourceKey !== undefined ? child.sourceKey : base.sourceKey,
+        sortOrder: base.sortOrder + index
+      });
+    });
+  });
+  return catalog.concat(EXTRA_ITEMS).map(applyClassification).sort((a, b) => a.sortOrder - b.sortOrder);
+}
+
+const ITEMS = buildCatalog();
+const DEFAULT_ITEM_IDS = new Set(ITEMS.map(item => item.id));
+const LEGACY_ID_MAP = ITEMS.reduce((map, item) => {
+  if (item.legacyId === undefined) return map;
+  const key = String(item.legacyId);
+  if (!map[key]) map[key] = [];
+  map[key].push(item.id);
+  return map;
+}, {});
+const REMOVED_LEGACY_STATE_ID_MAP = { "177": "item_177", "183": "item_183" };
+const MERGED_STATE_ITEMS = [
+  { targetId: "item_035_03", removedId: "item_177" },
+  { targetId: "item_140", removedId: "item_183" }
+];
+
+let storageWritable = true;
+let storageIssue = "";
+let state = loadState();
+let filter = "all";
+let query = "";
+let swipe = null;
+let suppressClickUntil = 0;
+let lastDeletedItem = null;
+let formMode = "add";
+let editingId = null;
+let activeDrawer = null;
+let drawerReturnFocus = null;
+let toastTimer = null;
+const expandedCategories = new Set();
+let visibleCategoryIds = [];
+
+const app = document.getElementById("app");
+const search = document.getElementById("search");
+const addDrawer = document.getElementById("addDrawer");
+const packDrawer = document.getElementById("packDrawer");
+const infoDrawer = document.getElementById("infoDrawer");
+const formTitle = document.getElementById("formTitle");
+const newItemName = document.getElementById("newItemName");
+const newItemQty = document.getElementById("newItemQty");
+const newItemNote = document.getElementById("newItemNote");
+const formHint = document.getElementById("formHint");
+const submitItemForm = document.getElementById("submitItemForm");
+const undoDeleteBtn = document.getElementById("undoDeleteBtn");
+const storageAlert = document.getElementById("storageAlert");
+const toast = document.getElementById("toast");
+const packOptions = document.getElementById("packOptions");
+const toggleAllBtn = document.getElementById("toggleAllBtn");
+
+function emptyState() {
+  return {
+    schemaVersion: SCHEMA_VERSION,
+    catalogVersion: CONTENT_VERSION,
+    completedIds: [],
+    customItems: [],
+    deletedIds: [],
+    itemEdits: {},
+    enabledPackIds: [],
+    noticeDismissed: false
+  };
+}
+
+function createItemId() {
+  if (globalThis.crypto && typeof globalThis.crypto.randomUUID === "function") {
+    return "custom_" + globalThis.crypto.randomUUID();
+  }
+  return "custom_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
+}
+
+function uniqueStrings(values) {
+  const seen = new Set();
+  const out = [];
+  (Array.isArray(values) ? values : []).forEach(value => {
+    if (value === null || value === undefined || value === "") return;
+    const key = String(value);
+    if (seen.has(key)) return;
+    seen.add(key);
+    out.push(key);
+  });
+  return out;
+}
+
+function normalizeCustomItems(items) {
+  if (!Array.isArray(items)) return [];
+  const seen = new Set(DEFAULT_ITEM_IDS);
+  const out = [];
+  items.forEach(raw => {
+    if (!raw || typeof raw !== "object") return;
+    const item = String(raw.item || "").trim();
+    if (!item) return;
+    let id = raw.id ? String(raw.id) : createItemId();
+    while (seen.has(id)) id = createItemId();
+    seen.add(id);
+    out.push({
+      id,
+      big: CUSTOM_BIG,
+      sub: CUSTOM_SUB,
+      categoryId: CUSTOM_CATEGORY_ID,
+      categoryName: CUSTOM_BIG,
+      item,
+      qty: String(raw.qty || "").trim(),
+      note: String(raw.note || "").trim(),
+      kind: "physical",
+      packId: "custom",
+      required: false,
+      phase: "packing",
+      baggageMode: "",
+      sourceKey: "",
+      verifiedAt: "",
+      custom: true
+    });
+  });
+  return out;
+}
+
+function normalizeIds(ids, customIds) {
+  const allowedCustom = customIds || new Set();
+  const out = [];
+  uniqueStrings(ids).forEach(id => {
+    if (DEFAULT_ITEM_IDS.has(id) || allowedCustom.has(id)) out.push(id);
+  });
+  return out;
+}
+
+function normalizeItemEdits(edits) {
+  if (!edits || typeof edits !== "object" || Array.isArray(edits)) return {};
+  const out = {};
+  Object.entries(edits).forEach(([id, edit]) => {
+    if (!DEFAULT_ITEM_IDS.has(String(id)) || !edit || typeof edit !== "object" || Array.isArray(edit)) return;
+    const item = String(edit.item || "").trim();
+    if (!item) return;
+    out[String(id)] = {
+      item,
+      qty: String(edit.qty || "").trim(),
+      note: String(edit.note || "").trim()
+    };
+  });
+  return out;
+}
+
+function normalizeState(raw) {
+  const next = emptyState();
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) return next;
+  next.customItems = normalizeCustomItems(raw.customItems);
+  const customIds = new Set(next.customItems.map(item => item.id));
+  next.completedIds = normalizeIds(raw.completedIds, customIds);
+  next.deletedIds = normalizeIds(raw.deletedIds, customIds);
+  next.itemEdits = normalizeItemEdits(raw.itemEdits);
+  next.enabledPackIds = uniqueStrings(raw.enabledPackIds).filter(id => OPTIONAL_PACK_IDS.includes(id));
+  next.noticeDismissed = raw.noticeDismissed === true;
+  next.catalogVersion = CONTENT_VERSION;
+  return next;
+}
+
+function normalizeLegacyState(raw) {
+  const next = { completedIds: [], customItems: [], deletedIds: [], itemEdits: {} };
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) return next;
+  if (Array.isArray(raw.completedIds) || Array.isArray(raw.customItems) || Array.isArray(raw.deletedIds) || raw.itemEdits) {
+    next.completedIds = Array.isArray(raw.completedIds) ? raw.completedIds : [];
+    next.customItems = Array.isArray(raw.customItems) ? raw.customItems : [];
+    next.deletedIds = Array.isArray(raw.deletedIds) ? raw.deletedIds : [];
+    next.itemEdits = raw.itemEdits && typeof raw.itemEdits === "object" ? raw.itemEdits : {};
+    return next;
+  }
+  next.completedIds = Object.keys(raw).filter(key => raw[key]);
+  return next;
+}
+
+function mapLegacyIds(ids) {
+  const out = [];
+  (Array.isArray(ids) ? ids : []).forEach(value => {
+    const key = String(value);
+    if (LEGACY_ID_MAP[key]) out.push(...LEGACY_ID_MAP[key]);
+    else if (REMOVED_LEGACY_STATE_ID_MAP[key]) out.push(REMOVED_LEGACY_STATE_ID_MAP[key]);
+    else if (key.startsWith("custom_")) out.push(key);
+  });
+  return uniqueStrings(out);
+}
+
+function migrateLegacyState(raw) {
+  const legacy = normalizeLegacyState(raw);
+  const next = emptyState();
+  next.enabledPackIds = OPTIONAL_PACK_IDS.slice();
+  next.customItems = normalizeCustomItems(legacy.customItems);
+  const legacyCompleted = new Set((legacy.completedIds || []).map(String));
+  const legacyDeleted = new Set((legacy.deletedIds || []).map(String));
+  const handledSplitEdits = new Set();
+
+  Object.entries(legacy.itemEdits || {}).forEach(([legacyId, edit]) => {
+    const key = String(legacyId);
+    const targets = LEGACY_ID_MAP[key] || (REMOVED_LEGACY_STATE_ID_MAP[key] ? [REMOVED_LEGACY_STATE_ID_MAP[key]] : []);
+    if (!targets.length || !edit || typeof edit !== "object") return;
+    const itemName = String(edit.item || "").trim();
+    if (!itemName) return;
+    const values = {
+      item: itemName,
+      qty: String(edit.qty || "").trim(),
+      note: String(edit.note || "").trim()
+    };
+    if (targets.length === 1) {
+      next.itemEdits[targets[0]] = values;
+      return;
+    }
+    handledSplitEdits.add(String(legacyId));
+    const original = LEGACY_ITEMS.find(item => String(item.id) === String(legacyId));
+    const customId = "custom_migrated_" + String(legacyId);
+    next.customItems.push({
+      id: customId,
+      big: CUSTOM_BIG,
+      sub: CUSTOM_SUB,
+      categoryId: CUSTOM_CATEGORY_ID,
+      categoryName: CUSTOM_BIG,
+      item: values.item,
+      qty: values.qty,
+      note: values.note,
+      kind: "physical",
+      packId: "custom",
+      required: false,
+      phase: "packing",
+      baggageMode: "",
+      sourceKey: "",
+      verifiedAt: "",
+      custom: true
+    });
+    next.deletedIds.push(...targets);
+    if (legacyCompleted.has(String(legacyId))) next.completedIds.push(customId);
+    if (legacyDeleted.has(String(legacyId))) next.deletedIds.push(customId);
+  });
+
+  const remainingCompleted = (legacy.completedIds || []).filter(id => !handledSplitEdits.has(String(id)));
+  const remainingDeleted = (legacy.deletedIds || []).filter(id => !handledSplitEdits.has(String(id)));
+  next.completedIds.push(...mapLegacyIds(remainingCompleted));
+  next.deletedIds.push(...mapLegacyIds(remainingDeleted));
+  return next;
+}
+
+function migrateV2State(raw) {
+  const next = raw && typeof raw === "object" && !Array.isArray(raw) ? {
+    ...raw,
+    completedIds: uniqueStrings(raw.completedIds),
+    deletedIds: uniqueStrings(raw.deletedIds),
+    itemEdits: raw.itemEdits && typeof raw.itemEdits === "object" && !Array.isArray(raw.itemEdits) ? { ...raw.itemEdits } : {},
+    enabledPackIds: uniqueStrings(raw.enabledPackIds)
+  } : emptyState();
+
+  MERGED_STATE_ITEMS.forEach(({ targetId, removedId }) => {
+    const completed = idSet(next.completedIds);
+    const deleted = idSet(next.deletedIds);
+    next.completedIds = removeId(next.completedIds, removedId);
+    next.completedIds = completed.has(targetId) || completed.has(removedId)
+      ? addId(next.completedIds, targetId)
+      : removeId(next.completedIds, targetId);
+    next.deletedIds = removeId(next.deletedIds, removedId);
+    next.deletedIds = deleted.has(targetId) && deleted.has(removedId)
+      ? addId(next.deletedIds, targetId)
+      : removeId(next.deletedIds, targetId);
+    if (!next.itemEdits[targetId] && next.itemEdits[removedId]) next.itemEdits[targetId] = next.itemEdits[removedId];
+    delete next.itemEdits[removedId];
+  });
+
+  if (next.enabledPackIds.includes("dorm")) {
+    next.enabledPackIds = uniqueStrings([...next.enabledPackIds, "study", "travel"]);
+  }
+  return normalizeState(next);
+}
+
+function loadState() {
+  try {
+    const currentRaw = localStorage.getItem(STORE_KEY);
+    if (currentRaw !== null) return normalizeState(JSON.parse(currentRaw));
+    const previousRaw = localStorage.getItem(PREVIOUS_STORE_KEY);
+    if (previousRaw !== null) {
+      const migrated = migrateV2State(JSON.parse(previousRaw));
+      localStorage.setItem(STORE_KEY, JSON.stringify(migrated));
+      return migrated;
+    }
+    const legacyRaw = localStorage.getItem(LEGACY_STORE_KEY);
+    if (legacyRaw !== null) {
+      const migrated = migrateV2State(migrateLegacyState(JSON.parse(legacyRaw)));
+      localStorage.setItem(STORE_KEY, JSON.stringify(migrated));
+      return migrated;
+    }
+    return emptyState();
+  } catch (error) {
+    storageWritable = false;
+    storageIssue = "无法读取本地进度。为避免覆盖可能损坏的数据，本次打开不会写入浏览器存储。";
+    return emptyState();
+  }
+}
+
+function save() {
+  state = normalizeState(state);
+  if (!storageWritable) {
+    updateStorageAlert();
+    showToast("当前修改无法保存");
+    updateProgress();
+    return false;
+  }
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(state));
+    updateStorageAlert();
+    updateProgress();
+    return true;
+  } catch (error) {
+    storageWritable = false;
+    storageIssue = "浏览器拒绝保存本地进度。请确认未使用受限或无痕模式，并不要关闭当前页面。";
+    updateStorageAlert();
+    showToast("保存失败");
+    updateProgress();
+    return false;
+  }
+}
+
+function idSet(ids) {
+  return new Set((ids || []).map(String));
+}
+
+function addId(ids, id) {
+  return uniqueStrings([...(ids || []), String(id)]);
+}
+
+function removeId(ids, id) {
+  const key = String(id);
+  return (ids || []).filter(value => String(value) !== key);
+}
+
+function isPackEnabled(packId) {
+  return packId === "core" || packId === "custom" || state.enabledPackIds.includes(packId);
+}
+
+function applyItemEdits(item) {
+  const edit = state.itemEdits[String(item.id)];
+  return edit ? { ...item, item: edit.item, qty: edit.qty, note: edit.note } : item;
+}
+
+function getItems() {
+  const deleted = idSet(state.deletedIds);
+  return ITEMS.map(applyItemEdits)
+    .concat(state.customItems)
+    .filter(item => isPackEnabled(item.packId) && !deleted.has(String(item.id)));
+}
+
+function getItemById(id) {
+  return getItems().find(item => String(item.id) === String(id));
+}
+
+function isDone(id) {
+  return idSet(state.completedIds).has(String(id));
+}
+
+function setDone(id, done) {
+  state.completedIds = done ? addId(state.completedIds, id) : removeId(state.completedIds, id);
+}
+
+function updateProgress() {
+  const items = getItems();
+  const done = items.filter(item => isDone(item.id)).length;
+  const percent = items.length ? (done ? Math.max(1, Math.round(done / items.length * 100)) : 0) : 0;
+  document.getElementById("progressText").textContent = done + " / " + items.length + " 已完成";
+  document.getElementById("percent").textContent = percent + "%";
+  document.getElementById("progressBar").style.width = percent + "%";
+  document.getElementById("progress").setAttribute("aria-valuenow", String(percent));
+}
+
+function matchItem(item) {
+  const text = [item.categoryName, item.item, item.qty, item.note].join(" ").toLowerCase();
+  if (query && !text.includes(query)) return false;
+  if (filter === "todo" && isDone(item.id)) return false;
+  if (filter === "done" && !isDone(item.id)) return false;
+  return true;
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#039;"
+  })[character]);
+}
+
+function tag(label, value, className) {
+  if (!value) return "";
+  return '<span class="tag ' + (className || "") + '">' + escapeHtml(label + value) + "</span>";
+}
+
+function setActionsAccessible(row, open) {
+  if (!row) return;
+  const actions = row.querySelector(".row-actions");
+  if (actions) {
+    actions.setAttribute("aria-hidden", open ? "false" : "true");
+    actions.inert = !open;
+  }
+  row.querySelectorAll(".action-btn").forEach(button => {
+    button.tabIndex = open ? 0 : -1;
+  });
+}
+
+function updateToggleAllButton() {
+  const allCollapsed = visibleCategoryIds.every(categoryId => !expandedCategories.has(categoryId));
+  toggleAllBtn.textContent = allCollapsed ? "全部展开" : "全部折叠";
+  toggleAllBtn.disabled = visibleCategoryIds.length === 0;
+}
+
+function render() {
+  closeOpenRow();
+  const activeItems = getItems();
+  const matchingItems = activeItems.filter(matchItem);
+  const categoryMap = new Map();
+  matchingItems.forEach(item => {
+    if (!categoryMap.has(item.categoryId)) categoryMap.set(item.categoryId, []);
+    categoryMap.get(item.categoryId).push(item);
+  });
+  const orderedCategoryIds = CATEGORIES.map(category => category.id)
+    .concat(CUSTOM_CATEGORY_ID)
+    .filter(categoryId => categoryMap.has(categoryId));
+  visibleCategoryIds = orderedCategoryIds;
+  if (query) orderedCategoryIds.forEach(categoryId => expandedCategories.add(categoryId));
+
+  document.getElementById("visibleSummary").textContent = matchingItems.length + " 项";
+  if (!orderedCategoryIds.length) {
+    app.innerHTML = '<div class="empty">没有匹配的项目</div>';
+    updateProgress();
+    updatePackUi();
+    updateToggleAllButton();
+    return;
+  }
+
+  let html = "";
+  orderedCategoryIds.forEach((categoryId, groupIndex) => {
+    const items = categoryMap.get(categoryId);
+    const category = CATEGORY_BY_ID.get(categoryId);
+    const categoryName = category ? category.name : CUSTOM_BIG;
+    const categoryItems = activeItems.filter(item => item.categoryId === categoryId);
+    const categoryDone = categoryItems.filter(item => isDone(item.id)).length;
+    const bodyId = "category-body-" + groupIndex;
+    const expanded = expandedCategories.has(categoryId);
+    html += '<section class="big-group">';
+    html += '<button class="big-title" type="button" data-category-id="' + escapeHtml(categoryId) + '" aria-expanded="' + String(expanded) + '" aria-controls="' + bodyId + '">';
+    html += "<span>" + escapeHtml(categoryName) + '</span><span class="big-count">' + categoryDone + "/" + categoryItems.length + "项 " + (expanded ? "▾" : "▸") + "</span></button>";
+    html += '<div id="' + bodyId + '" class="big-body ' + (expanded ? "" : "hide") + '">';
+    items.forEach(item => {
+      const id = escapeHtml(String(item.id));
+      const name = escapeHtml(item.item);
+      const done = isDone(item.id);
+      const metaHtml = tag("数量：", item.qty) + tag("", item.note, "note");
+      html += '<div class="item-row" data-id="' + id + '">';
+      html += '<div class="row-actions" aria-hidden="true" inert>';
+      html += '<button class="action-btn edit-btn" type="button" tabindex="-1" data-id="' + id + '" aria-label="编辑' + name + '">编辑</button>';
+      html += '<button class="action-btn delete-btn" type="button" tabindex="-1" data-id="' + id + '" aria-label="删除' + name + '">删除</button></div>';
+      html += '<div class="item ' + (done ? "done" : "") + '">';
+      html += '<label class="check-wrap" for="check-' + id + '"><input id="check-' + id + '" class="check" type="checkbox" data-id="' + id + '" ' + (done ? "checked" : "") + '></label>';
+      html += '<div><label class="name" for="check-' + id + '">' + name + "</label>";
+      if (metaHtml) html += '<div class="meta">' + metaHtml + "</div>";
+      html += "</div></div></div>";
+    });
+    html += "</div></section>";
+  });
+  app.innerHTML = html;
+  updateProgress();
+  updatePackUi();
+  updateToggleAllButton();
+}
+
+function closeRow(row) {
+  if (!row) return;
+  row.classList.remove("open", "swiping");
+  const item = row.querySelector(".item");
+  if (item) item.style.transform = "";
+  setActionsAccessible(row, false);
+}
+
+function openRow(row) {
+  if (!row) return;
+  closeOpenRow(row);
+  row.classList.remove("swiping");
+  const item = row.querySelector(".item");
+  if (item) item.style.transform = "";
+  row.classList.add("open");
+  setActionsAccessible(row, true);
+}
+
+function closeOpenRow(except) {
+  document.querySelectorAll(".item-row.open,.item-row.swiping").forEach(row => {
+    if (row !== except) closeRow(row);
+  });
+}
+
+function updateUndoButton() {
+  undoDeleteBtn.classList.toggle("hide", !lastDeletedItem);
+}
+
+function deleteItem(id) {
+  const item = getItemById(id);
+  if (!item) return;
+  lastDeletedItem = { id: item.id, wasDone: isDone(item.id) };
+  state.deletedIds = addId(state.deletedIds, item.id);
+  state.completedIds = removeId(state.completedIds, item.id);
+  save();
+  render();
+  updateUndoButton();
+  showToast("已删除，可撤销一次");
+}
+
+function undoDelete() {
+  if (!lastDeletedItem) return;
+  const deleted = lastDeletedItem;
+  lastDeletedItem = null;
+  state.deletedIds = removeId(state.deletedIds, deleted.id);
+  if (deleted.wasDone) state.completedIds = addId(state.completedIds, deleted.id);
+  save();
+  render();
+  updateUndoButton();
+  showToast("已撤销删除");
+}
+
+function setFilter(next) {
+  filter = next;
+  document.querySelectorAll("[data-filter]").forEach(button => {
+    const active = button.dataset.filter === filter;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+function showDrawer(drawer, focusTarget) {
+  closeOpenRow();
+  if (activeDrawer && activeDrawer !== drawer) hideDrawer(activeDrawer, false);
+  drawerReturnFocus = document.activeElement;
+  activeDrawer = drawer;
+  drawer.classList.add("open");
+  drawer.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  setTimeout(() => {
+    const target = focusTarget || drawer.querySelector("button,input,textarea,a[href]");
+    if (target) target.focus();
+  }, 30);
+}
+
+function hideDrawer(drawer, restoreFocus) {
+  if (!drawer) return;
+  drawer.classList.remove("open");
+  drawer.setAttribute("aria-hidden", "true");
+  if (activeDrawer === drawer) activeDrawer = null;
+  document.body.classList.remove("modal-open");
+  if (restoreFocus !== false && drawerReturnFocus && document.contains(drawerReturnFocus)) {
+    drawerReturnFocus.focus();
+  }
+  drawerReturnFocus = null;
+}
+
+function trapDrawerFocus(event) {
+  if (!activeDrawer) return;
+  if (event.key === "Escape") {
+    event.preventDefault();
+    hideDrawer(activeDrawer);
+    return;
+  }
+  if (event.key !== "Tab") return;
+  const focusable = Array.from(activeDrawer.querySelectorAll('button:not([disabled]),input:not([disabled]),textarea:not([disabled]),a[href]'))
+    .filter(element => element.offsetParent !== null);
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+function openAddForm() {
+  formMode = "add";
+  editingId = null;
+  formTitle.textContent = "新增条目";
+  newItemName.value = "";
+  newItemQty.value = "";
+  newItemNote.value = "";
+  formHint.textContent = "新增条目会保存到“自定义”分类中。";
+  submitItemForm.textContent = "添加";
+  showDrawer(addDrawer, newItemName);
+}
+
+function openEditForm(id) {
+  const item = getItemById(id);
+  if (!item) return;
+  formMode = "edit";
+  editingId = String(item.id);
+  formTitle.textContent = "编辑条目";
+  newItemName.value = item.item || "";
+  newItemQty.value = item.qty || "";
+  newItemNote.value = item.note || "";
+  formHint.textContent = "正在编辑“" + item.categoryName + "”。";
+  submitItemForm.textContent = "保存";
+  showDrawer(addDrawer, newItemName);
+}
+
+function editItem(id, values) {
+  const custom = state.customItems.find(item => String(item.id) === String(id));
+  if (custom) {
+    custom.item = values.item;
+    custom.qty = values.qty;
+    custom.note = values.note;
+    return;
+  }
+  state.itemEdits[String(id)] = values;
+}
+
+function renderPackOptions() {
+  packOptions.innerHTML = OPTIONAL_PACK_IDS.map(packId => {
+    const pack = PACKS[packId];
+    const count = ITEMS.filter(item => item.packId === packId).length;
+    const checked = state.enabledPackIds.includes(packId);
+    return '<label class="pack-option"><input type="checkbox" data-pack-id="' + packId + '" ' + (checked ? "checked" : "") + '><span><strong>' + escapeHtml(pack.name) + " · " + count + " 项</strong><span class=\"small\">" + escapeHtml(pack.description) + "</span></span></label>";
+  }).join("");
+}
+
+function updatePackUi() {
+  const enabledCount = state.enabledPackIds.length;
+  document.getElementById("packCount").textContent = String(enabledCount);
+  document.getElementById("activePackSummary").textContent = enabledCount ? "默认分类 + " + enabledCount + " 个可选包" : "6 个默认分类";
+}
+
+function updateStorageAlert() {
+  storageAlert.textContent = storageIssue;
+  storageAlert.classList.toggle("hide", !storageIssue);
+}
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+}
+
+function configureInfo() {
+  document.getElementById("contentVersion").textContent = CONTENT_VERSION;
+  document.getElementById("verifiedDate").textContent = VERIFIED_AT;
+  document.getElementById("sourceList").innerHTML = Object.values(SOURCE_LINKS).map(source => {
+    return '<li><a href="' + escapeHtml(source.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(source.label) + "</a></li>";
+  }).join("");
+  const hostParts = location.hostname.split(".");
+  const repoName = location.pathname.split("/").filter(Boolean)[0];
+  if (location.hostname.endsWith(".github.io") && hostParts[0] && repoName) {
+    const feedbackLink = document.getElementById("feedbackLink");
+    feedbackLink.href = "https://github.com/" + encodeURIComponent(hostParts[0]) + "/" + encodeURIComponent(repoName) + "/issues/new?template=content-report.yml";
+    feedbackLink.classList.remove("hide");
+  }
+}
+
+search.addEventListener("input", event => {
+  query = event.target.value.trim().toLowerCase();
+  render();
+});
+
+document.querySelectorAll("[data-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    setFilter(button.dataset.filter);
+    render();
+  });
+});
+
+app.addEventListener("change", event => {
+  const checkbox = event.target.closest(".check");
+  if (!checkbox) return;
+  setDone(checkbox.dataset.id, checkbox.checked);
+  save();
+  render();
+});
+
+app.addEventListener("click", event => {
+  if (Date.now() < suppressClickUntil) {
+    event.preventDefault();
+    event.stopPropagation();
+    return;
+  }
+  const editButton = event.target.closest(".edit-btn");
+  if (editButton) {
+    event.preventDefault();
+    event.stopPropagation();
+    openEditForm(editButton.dataset.id);
+    return;
+  }
+  const deleteButton = event.target.closest(".delete-btn");
+  if (deleteButton) {
+    event.preventDefault();
+    event.stopPropagation();
+    deleteItem(deleteButton.dataset.id);
+    return;
+  }
+  const categoryButton = event.target.closest("[data-category-id]");
+  if (categoryButton) {
+    const categoryId = categoryButton.dataset.categoryId;
+    if (expandedCategories.has(categoryId)) expandedCategories.delete(categoryId);
+    else expandedCategories.add(categoryId);
+    render();
+    return;
+  }
+  const openItemRow = event.target.closest(".item-row.open");
+  if (openItemRow && !event.target.closest("a,input,label")) {
+    event.preventDefault();
+    event.stopPropagation();
+    closeRow(openItemRow);
+    return;
+  }
+  if (!event.target.closest(".item-row")) closeOpenRow();
+}, true);
+
+app.addEventListener("pointerdown", event => {
+  if (event.target.closest("a,button,input")) return;
+  const item = event.target.closest(".item");
+  if (!item || !app.contains(item)) return;
+  const row = item.closest(".item-row");
+  swipe = {
+    row,
+    item,
+    pointerId: event.pointerId,
+    startX: event.clientX,
+    startY: event.clientY,
+    baseX: row.classList.contains("open") ? -SWIPE_WIDTH : 0,
+    currentX: row.classList.contains("open") ? -SWIPE_WIDTH : 0,
+    dragging: false
+  };
+  closeOpenRow(row);
+});
+
+app.addEventListener("pointermove", event => {
+  if (!swipe || event.pointerId !== swipe.pointerId) return;
+  const deltaX = event.clientX - swipe.startX;
+  const deltaY = event.clientY - swipe.startY;
+  if (!swipe.dragging) {
+    if (Math.abs(deltaX) < 8 && Math.abs(deltaY) < 8) return;
+    if (Math.abs(deltaY) > Math.abs(deltaX)) {
+      swipe = null;
+      return;
+    }
+    swipe.dragging = true;
+    swipe.row.classList.add("swiping");
+    swipe.item.setPointerCapture?.(event.pointerId);
+  }
+  event.preventDefault();
+  swipe.currentX = Math.max(-SWIPE_WIDTH, Math.min(0, swipe.baseX + deltaX));
+  swipe.item.style.transform = "translateX(" + swipe.currentX + "px)";
+});
+
+function finishSwipe(event) {
+  if (!swipe || event.pointerId !== swipe.pointerId) return;
+  const activeSwipe = swipe;
+  swipe = null;
+  if (!activeSwipe.dragging) return;
+  activeSwipe.row.classList.remove("swiping");
+  activeSwipe.item.releasePointerCapture?.(event.pointerId);
+  suppressClickUntil = Date.now() + 250;
+  if (activeSwipe.currentX <= -SWIPE_WIDTH / 2) openRow(activeSwipe.row);
+  else closeRow(activeSwipe.row);
+}
+
+app.addEventListener("pointerup", finishSwipe);
+app.addEventListener("pointercancel", finishSwipe);
+document.addEventListener("scroll", () => closeOpenRow(), true);
+document.addEventListener("keydown", trapDrawerFocus);
+
+document.getElementById("addBtn").addEventListener("click", openAddForm);
+undoDeleteBtn.addEventListener("click", undoDelete);
+toggleAllBtn.addEventListener("click", () => {
+  const allCollapsed = visibleCategoryIds.every(categoryId => !expandedCategories.has(categoryId));
+  visibleCategoryIds.forEach(categoryId => {
+    if (allCollapsed) expandedCategories.add(categoryId);
+    else expandedCategories.delete(categoryId);
+  });
+  render();
+});
+
+document.getElementById("closeAddDrawer").addEventListener("click", () => hideDrawer(addDrawer));
+document.getElementById("packsBtn").addEventListener("click", () => {
+  renderPackOptions();
+  showDrawer(packDrawer);
+});
+document.getElementById("closePackDrawer").addEventListener("click", () => hideDrawer(packDrawer));
+document.getElementById("infoBtn").addEventListener("click", () => showDrawer(infoDrawer));
+document.getElementById("ackInfoBtn").addEventListener("click", () => {
+  state.noticeDismissed = true;
+  save();
+  hideDrawer(infoDrawer);
+});
+
+[addDrawer, packDrawer, infoDrawer].forEach(drawer => {
+  drawer.addEventListener("click", event => {
+    if (event.target === drawer) hideDrawer(drawer);
+  });
+});
+
+packOptions.addEventListener("change", event => {
+  const checkbox = event.target.closest("[data-pack-id]");
+  if (!checkbox) return;
+  const packId = checkbox.dataset.packId;
+  state.enabledPackIds = checkbox.checked ? addId(state.enabledPackIds, packId) : removeId(state.enabledPackIds, packId);
+  CATEGORIES.filter(category => category.packId === packId).forEach(category => expandedCategories.delete(category.id));
+  save();
+  render();
+  renderPackOptions();
+});
+
+document.getElementById("addForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const name = newItemName.value.trim();
+  if (!name) {
+    newItemName.focus();
+    showToast("请填写物品名称");
+    return;
+  }
+  const values = {
+    item: name,
+    qty: newItemQty.value.trim(),
+    note: newItemNote.value.trim()
+  };
+  if (formMode === "edit" && editingId !== null) {
+    editItem(editingId, values);
+  } else {
+    state.customItems.push({
+      id: createItemId(),
+      big: CUSTOM_BIG,
+      sub: CUSTOM_SUB,
+      categoryId: CUSTOM_CATEGORY_ID,
+      categoryName: CUSTOM_BIG,
+      item: values.item,
+      qty: values.qty,
+      note: values.note,
+      kind: "physical",
+      packId: "custom",
+      required: false,
+      phase: "packing",
+      baggageMode: "",
+      sourceKey: "",
+      verifiedAt: "",
+      custom: true
+    });
+    setFilter("all");
+    query = "";
+    search.value = "";
+    expandedCategories.add(CUSTOM_CATEGORY_ID);
+  }
+  save();
+  render();
+  hideDrawer(addDrawer);
+});
+
+const header = document.querySelector("header");
+function updateHeaderHeight() {
+  document.documentElement.style.setProperty("--header-height", Math.ceil(header.getBoundingClientRect().height) + "px");
+}
+updateHeaderHeight();
+if ("ResizeObserver" in globalThis) new ResizeObserver(updateHeaderHeight).observe(header);
+else globalThis.addEventListener("resize", updateHeaderHeight);
+
+configureInfo();
+renderPackOptions();
+updateStorageAlert();
+render();
+updateUndoButton();
+if (!state.noticeDismissed) setTimeout(() => showDrawer(infoDrawer), 120);
+</script>
+</body>
+</html>
