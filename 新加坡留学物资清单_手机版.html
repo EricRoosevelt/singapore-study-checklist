@@ -95,6 +95,11 @@ main{padding:12px 12px calc(132px + env(safe-area-inset-bottom));max-width:760px
 .source-list{margin:6px 0 0;padding-left:20px}
 .source-list li{margin:8px 0;line-height:1.45}
 .source-list a{color:var(--brand)}
+#infoDrawer{align-items:center;padding:calc(12px + env(safe-area-inset-top)) 14px calc(12px + env(safe-area-inset-bottom))}
+#infoDrawer .panel{display:flex;flex-direction:column;width:100%;max-width:620px;max-height:100%;border-radius:16px;padding:18px 16px;overflow:hidden}
+#infoDrawer .panel h2{flex:0 0 auto}
+.info-scroll{min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding-right:2px}
+#ackInfoBtn{flex:0 0 auto;margin:12px 0 0}
 .toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));z-index:90;transform:translate(-50%,16px);max-width:calc(100vw - 32px);padding:10px 14px;background:#173b37;color:#fff;border-radius:8px;font-size:14px;opacity:0;pointer-events:none;transition:.18s ease}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .hide{display:none!important}
@@ -158,7 +163,7 @@ summary{cursor:pointer}
 <div id="packDrawer" class="drawer" aria-hidden="true">
   <section class="panel" role="dialog" aria-modal="true" aria-labelledby="packTitle">
     <h2 id="packTitle">按需启用可选包</h2>
-    <p class="small">默认显示 6 个基础分类。启用的同名可选分类会加入总进度，关闭后不会删除其中的勾选和编辑记录。</p>
+    <p class="small">默认启用全部可选包。关闭不需要的分类后，它们不再计入总进度，但其中的勾选和编辑记录会保留。</p>
     <div id="packOptions"></div>
     <button id="closePackDrawer" class="fab-primary" type="button">完成</button>
   </section>
@@ -167,21 +172,23 @@ summary{cursor:pointer}
 <div id="infoDrawer" class="drawer" aria-hidden="true">
   <section class="panel" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
     <h2 id="infoTitle">使用与安全说明</h2>
-    <div class="info-block">
-      <h3>使用范围</h3>
-      <p>本清单综合多位 NTU、NUS 留学生在小红书分享的经验整理，不代表学校或新加坡政府官方意见。不同学校、项目、住宿和航空公司要求可能不同，请以 ICA、校方和航空公司最新通知为准。</p>
-    </div>
-    <div class="info-block">
-      <h3>数据保存</h3>
-      <p>勾选、新增、编辑、删除和可选包设置只保存在当前网址、当前浏览器。小红书内置浏览器与外部浏览器、不同设备、清除浏览器数据或更换网址都不会共享进度。本网页不会上传清单内容；GitHub Pages 可能为安全目的记录访问者 IP。</p>
-    </div>
-    <div class="info-block">
-      <h3>官方资料</h3>
-      <ul id="sourceList" class="source-list"></ul>
-    </div>
-    <div class="info-block">
-      <p>内容版本：<strong id="contentVersion"></strong><br>最后核验：<strong id="verifiedDate"></strong></p>
-      <p><a id="feedbackLink" class="hide" target="_blank" rel="noopener noreferrer">发现错误？在 GitHub 提交反馈</a></p>
+    <div class="info-scroll">
+      <div class="info-block">
+        <h3>使用范围</h3>
+        <p>本清单综合多位 NTU、NUS 留学生在小红书分享的经验整理，不代表学校或新加坡政府官方意见。不同学校、项目、住宿和航空公司要求可能不同，请以 ICA、校方和航空公司最新通知为准。</p>
+      </div>
+      <div class="info-block">
+        <h3>数据保存</h3>
+        <p>勾选、新增、编辑、删除和可选包设置只保存在当前网址、当前浏览器。小红书内置浏览器与外部浏览器、不同设备、清除浏览器数据或更换网址都不会共享进度。本网页不会上传清单内容；GitHub Pages 可能为安全目的记录访问者 IP。</p>
+      </div>
+      <div class="info-block">
+        <h3>官方资料</h3>
+        <ul id="sourceList" class="source-list"></ul>
+      </div>
+      <div class="info-block">
+        <p>内容版本：<strong id="contentVersion"></strong><br>最后核验：<strong id="verifiedDate"></strong></p>
+        <p><a id="feedbackLink" class="hide" target="_blank" rel="noopener noreferrer">发现错误？在 GitHub 提交反馈</a></p>
+      </div>
     </div>
     <button id="ackInfoBtn" class="fab-primary" type="button">我知道了</button>
   </section>
@@ -681,7 +688,7 @@ function emptyState() {
     customItems: [],
     deletedIds: [],
     itemEdits: {},
-    enabledPackIds: [],
+    enabledPackIds: OPTIONAL_PACK_IDS.slice(),
     noticeDismissed: false
   };
 }
