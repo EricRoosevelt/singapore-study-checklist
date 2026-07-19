@@ -114,8 +114,10 @@ const cleanState = normalizeState(emptyState());
 assert(cleanState.completedIds.length === 0, "干净状态存在默认勾选");
 assert(cleanState.customItems.length === 0, "干净状态存在默认自定义条目");
 assert(cleanState.deletedIds.length === 0, "干净状态存在默认删除");
-assert(cleanState.enabledPackIds.length === 0, "干净状态默认启用了可选包");
+assert(JSON.stringify(cleanState.enabledPackIds) === JSON.stringify(OPTIONAL_PACK_IDS), "干净状态未默认启用全部可选包");
 assert(!/\schecked(?:\s|>)/i.test(markupBeforeScript), "HTML 中存在静态默认勾选");
+assert(html.includes('class="info-scroll"'), "首次说明缺少内部滚动容器");
+assert(html.includes("#infoDrawer .panel{display:flex"), "首次说明面板未使用固定操作区布局");
 
 const v2Migrated = migrateV2State({
   completedIds: ["item_177", "item_183"],
