@@ -21,6 +21,12 @@
 html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header-height) + 130px)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",Arial,sans-serif}
 body.modal-open{overflow:hidden}
+.migrate{background:#fff8e1;border-bottom:2px solid #f0b429;color:#5b4405;padding:calc(15px + env(safe-area-inset-top)) 16px 15px}
+.migrate-in{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:9px}
+.migrate strong{font-size:16px;line-height:1.5;color:#7a5a00}
+.migrate p{margin:0;font-size:14px;line-height:1.75}
+.migrate .go{align-self:flex-start;display:inline-block;min-height:44px;line-height:44px;padding:0 22px;border-radius:999px;background:var(--brand);color:#fff;text-decoration:none;font-size:15px;font-weight:600}
+.migrate .go:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
 header{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:calc(14px + env(safe-area-inset-top)) 16px 14px;box-shadow:0 3px 14px rgba(0,0,0,.12)}
 h1{font-size:clamp(20px,6vw,24px);margin:0;letter-spacing:0}
 .header-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
@@ -109,6 +115,15 @@ summary{cursor:pointer}
 </style>
 </head>
 <body>
+<aside class="migrate" aria-label="迁移公告">
+  <div class="migrate-in">
+    <strong>8 月 27 日起，GitHub 临时页面将不再服务。</strong>
+    <p>新页面在 ericcoding.com，现在可以正常运行。<br>
+    换至新页面后浏览器不能带走你做过的任何编辑哦，那么现在就迁移到留子清单的新家吧！</p>
+    <a class="go" href="https://ericcoding.com/sg/">去新家 →</a>
+  </div>
+</aside>
+
 <header>
   <div class="header-title-row">
     <h1>新加坡留学准备清单 <span class="version-pill">公开版</span></h1>
